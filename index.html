@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kuna Assets</title>
+    <script src="js/plotly.min.js"></script>
+    <script src="js/rrd/binaryXHR.js"></script>
+    <script src="js/rrd/rrdFile.js"></script>
+    <script src="js/rrd/RrdPlotly.js"></script>
+</head>
+<body>
+    <div id="divPlot" style="background-color:lightblue"></div>
+    <script>
+        class AssetsPlotly extends RrdPlotly {
+            getDsAxis(ds) {
+                if (ds.getName() == "usd"){
+                    return "y2";
+                }
+                return super.getDsAxis();
+            }
+        }
+
+        let rrdPlotly = new AssetsPlotly();
+        rrdPlotly.plot("assets.rrd", "divPlot", {
+                title: "Asset Dynamics"
+            })
+            .catch(err => {
+                alert("Failed to plot RRD: "+err);
+            });;
+    </script>
+</body>
+</html>
