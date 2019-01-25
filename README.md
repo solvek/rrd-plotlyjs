@@ -1,6 +1,8 @@
 # PlotlyRRD
 Plotting interactive charts in browser from Round Robin Database
 
+[Live Demo](https://solvek.github.io/rrd-plotlyjs/)
+
 Used 3rd party projects:
 
 1. [Plotly.js](https://plot.ly/javascript) - js library for interactive charts
